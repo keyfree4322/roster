@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
+  
+  resources :rosters, only: [:index, :show]
+    namespace :admin do
+      resources :rosters, only: [:index, :new, :create, :show, :edit, :destroy]
+    end
 end
